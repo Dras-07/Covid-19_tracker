@@ -1,21 +1,21 @@
 const selectElem=document.querySelector('select#select');
 function manipulateData(data){
 console.log(data);
-for(let i=0;i<192;i++)
+for(let i=0;i<222;i++)
 {
 //console.log(data.Countries[i]);
-const op=data.Countries[i];
-const singleData=data.Countries[i].Country;
+const op=data[i];
+const singleData=data[i].country;
 makeNewOptionBox(singleData);
 
 selectElem.addEventListener("change",function(e){
     if(e.target.value==singleData){
-    let NewConfrimed=op.NewConfirmed;
-    let NewDeaths=op.NewDeaths;
-    let NewRecovered=op.NewRecovered;
-    let TotalDeaths=op.TotalDeaths;
-    let TotalCases=op.TotalConfirmed;
-    console.log(data);
+     let NewConfrimed=op.todayCases;
+    let NewDeaths=op.todayDeaths;
+    let NewRecovered=op.todayRecovered;
+    let TotalDeaths=op.deaths;
+    let TotalCases=op.cases;
+    //console.log(data);
     console.log("Newconfirmed=>"+NewConfrimed);
     console.log("new deaths=>"+NewDeaths);
     console.log("new recoverd=>"+NewRecovered);
@@ -68,7 +68,7 @@ function makeNewOptionBox(data)
   }
   }
 
-const fetchedData=fetch('https://api.covid19api.com/summary')
+const fetchedData=fetch('https://corona.lmao.ninja/v2/countries?yesterday&sort')
 .then(response => {return response.json()})
 .then(data => {
     manipulateData(data);
