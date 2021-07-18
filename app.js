@@ -10,7 +10,7 @@ makeNewOptionBox(singleData);
 
 selectElem.addEventListener("change",function(e){
     if(e.target.value==singleData){
-     let NewConfrimed=op.todayCases;
+    let NewConfrimed=op.todayCases;
     let NewDeaths=op.todayDeaths;
     let NewRecovered=op.todayRecovered;
     let TotalDeaths=op.deaths;
@@ -71,7 +71,8 @@ function makeNewOptionBox(data)
 const fetchedData=fetch('https://corona.lmao.ninja/v2/countries?yesterday&sort')
 .then(response => {return response.json()})
 .then(data => {
-    manipulateData(data);
+   manipulateData(data);
 });
+
 
 
